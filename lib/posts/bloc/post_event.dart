@@ -1,6 +1,7 @@
 part of 'post_bloc.dart';
 
-/// PostBloc가 수신할 이벤트를 정의합니다.
+/// 리덕스의 Action 같은 역할
+/// 이벤트 전달이 목적.
 
 sealed class PostEvent extends Equatable {
   @override
