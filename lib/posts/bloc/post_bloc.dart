@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:equatable/equatable.dart';
 import 'package:flutter_infinite_list/posts/models/post.dart';
 
 part 'post_event.dart';
