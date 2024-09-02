@@ -20,9 +20,16 @@ EventTransformer<E> throttleDroppable<E>(Duration duration) {
   };
 }
 
+/// ========================================================
+/// 1. PostBloc 클래스는 Bloc<PostEvent, PostState>를 확장합니다.
+/// 2. PostBloc 클래스는 PostEvent와 PostState를 사용하여 제네릭을 설정합니다.
+/// 3. PostBloc 클래스는 PostBloc 생성자를 통해 httpClient를 받습니다.
+/// 4. PostBloc 클래스는 PostState의 초기 상태를 반환합니다.
+/// 5. PostBloc 클래스는 PostFetched 이벤트를 처리하는 이벤트 핸들러를 등록합니다.
+/// ========================================================
+
 class PostBloc extends Bloc<PostEvent, PostState> {
   PostBloc({required this.httpClient}) : super(const PostState()) {
-    /// PostFetched 이벤트를 처리할 이벤트 핸들러를 등록
     on<PostFetched>(
       _onPostFetched,
       transformer: throttleDroppable(throttleDuration),
